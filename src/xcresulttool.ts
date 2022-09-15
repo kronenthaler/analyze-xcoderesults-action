@@ -219,6 +219,9 @@ export async function generateGitHubCheckOutput(
     summaryMd += testSummary(summary.metrics)
   }
 
+  // output the report to the step summary or expose into an output variable
+  core.setOutput('summary-markdown', summaryMd)
+
   return {
     summary: summaryMd,
     title: core.getInput('title'),

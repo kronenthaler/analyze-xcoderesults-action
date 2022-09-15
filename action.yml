@@ -10,7 +10,7 @@ inputs:
     description: 'Build Path Prefix'
     default: ${{ github.workspace }}
   GITHUB_TOKEN:
-    required: true
+    required: false
     description: "GitHub token to create the check"
   title:
     required: true
@@ -40,6 +40,9 @@ inputs:
     required: true
     description: "Print a summary of all tasks"
     default: "true"
+outputs:
+  summary-markdown:
+    description: "The summary markdown that is written into the check"
 runs:
   using: 'node12'
   main: 'dist/index.js'
